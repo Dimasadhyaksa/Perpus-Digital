@@ -1,24 +1,26 @@
 <template>
-  <div class="container-fluid">
-    <div class="row my-5">
-      <div class="col-lg-6">
-        <nuxt-link to="/pengunjung/riwayat">
-          <div class="card bg-pengunjung rounded-5">
-            <div class="card-body">
-              <h2>Pengunjung</h2>
+  <div class="content">
+    <div class="container-fluid">
+      <div class="row pt-5">
+        <div class="col-lg-6">
+          <nuxt-link to="/pengunjung/riwayat" class="text-decoration-none">
+            <div class="card bg-pengunjung rounded-5">
+              <div class="card-body">
+                <h2 >Pengunjung</h2>
+              </div>
             </div>
-          </div>
-        </nuxt-link>
-      </div>
-
-      <div class="col-lg-6">
-        <nuxt-link to="/buku">
-          <div class="card bg-buku rounded-5">
-            <div class="card-body">
-              <h2>Cari Buku</h2>
+          </nuxt-link>
+        </div>
+  
+        <div class="col-lg-6">
+          <nuxt-link to="/buku" class="text-decoration-none">
+            <div class="card bg-buku rounded-5">
+              <div class="card-body">
+                <h2>Cari Buku</h2>
+              </div>
             </div>
-          </div>
-        </nuxt-link>
+          </nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -28,8 +30,10 @@
 <style scoped>
 .card {
   height: 250px;
-  box-shadow: 1px 1px 10px #424242;
+  border: 3px solid #2667A3;
+  
 }
+
 .card.bg-pengunjung {
   background-image: url("../assets/img/bg-home-kunjungan.jpg");
   background-repeat: no-repeat;
@@ -40,4 +44,10 @@
   background: url("../assets/img/bg-home-cari-buku.jpg") no-repeat center center;
   background-size: cover;
 }
+
+.content{
+  background-color: #7BC130;
+  height: 100vh;
+}
+
 </style>
