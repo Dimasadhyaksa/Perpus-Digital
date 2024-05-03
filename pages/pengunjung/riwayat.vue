@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-          <h2 class="text-center my-4">RIWAYAT KUNJUNGAN</h2>
+          <h2 class="text-center my-4 text-light">RIWAYAT KUNJUNGAN</h2>
           <div class="my-3">
             <input type="search" class="form-control form-control-lg rounded-5" placeholder="Filter...">
           </div>
@@ -44,7 +44,7 @@
 }
 
 .content{
-  background-color: #7BC130;
+  background-color: #97cf5a;
   height: 100vh;
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12">
-          <h2 class="text-center my-4">BUKU</h2>
+          <h2 class="text-center my-4 text-light">BUKU</h2>
           <div class="my-3">
             <input type="search" class="form-control rounded-5" placeholder="Mau baca apa hari ini?">
           </div>
@@ -12,26 +12,25 @@
             <div class="col-lg-2">
               <div class="card mb-3">
                 <div class="card-body">
-                  <img src="~/assets/img/cover1.jpg" class="cover" alt="cover1">
+                  <img src="~/assets/img/cover4.jpeg" class="cover" alt="cover1">
                 </div>
               </div>
             </div>
             <div class="col-lg-2">
               <div class="card mb-3">
                 <div class="card-body">
-                  <img src="~/assets/img/cover2.jpg" class="cover" alt="cover2">
+                  <img src="~/assets/img/cover5.jpeg" class="cover" alt="cover2">
                 </div>
               </div>
             </div>
             <div class="col-lg-2">
               <div class="card mb-3">
                 <div class="card-body">
-                  <img src="~/assets/img/cover3.jpg" class="cover" alt="cover3">
+                  <img src="~/assets/img/cover6.jpeg" class="cover" alt="cover3">
                 </div>
               </div>
             </div>
           </div>
-          <nuxt-link to="/menu" class="btn btn-dark btn-lg rounded-5 px-5">back to menu</nuxt-link>
         </div>
       </div>
     </div>
@@ -53,7 +52,15 @@
 }
 
 .content{
-  background-color: #7BC130;
+  background-color: #97cf5a;
   height: 100vh;
 }
+
+.btn-back{
+  background-color: #295000;
+  color: white;
+  border: 2px solid white;
+}
+
+
 </style>

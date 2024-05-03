@@ -1,9 +1,13 @@
 <template>
   <div class="content">
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
-          <h2 class="text-center my-4">ISI BUKU KUNJUNGAN</h2>
+      <div class="row d-flex justify-content-center align-items-center pt-5">
+        <div class="col-6 text-light text-center">
+          <h2>ISI DAFTAR</h2>
+          <h2>PENGUNJUNG</h2>
+        </div>
+        <div class="col-6">
+
           <form>
             <div class="mb-3">
               <input type="text" class="form-control form-control-lg rounded-5" placeholder="NAMA...">
@@ -58,20 +62,28 @@
           </div>
           <nuxt-link to="/menu" class="btn btn-kirim btn-lg rounded-5 px-5">Kirim</nuxt-link>
         </form>
+        </div>
       </div>
-    </div>
   </div>
 </div>
 </template>
 
 <style scoped>
+form{
+  width: 400px;
+  background-color: #c6fc8c;
+  padding: 1rem;
+  border-radius: 20px;
+  
+  
+}
 .btn-kirim{
   background-color: #295000;
   color: white;
   border: 2px solid white;
 }
 .content{
-  background-color: #7BC130;
+  background-color: #97cf5a;
   height: 100vh;
   /* z-index: ; */
 }

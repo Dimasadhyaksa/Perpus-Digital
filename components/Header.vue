@@ -7,7 +7,7 @@
     <div class="col-md-10 col-9" style="color: white;">
       <h1 class="judul ms-2">PERPUS DIGITAL</h1>
       <p class="alamat ms-2">
-        SMKN 4 Tasikmalaya
+        SMKN4 Tasikmalaya
       </p>
     </div>
   </div>
