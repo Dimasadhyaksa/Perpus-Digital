@@ -10,30 +10,49 @@
           <div class="my-3 text-muted">menampilkan 1 dari 1</div>
           <table class="table">
             <thead>
-              <tr>
-                <td>#</td>
+              <tr class="text-center">
+                <td>ID</td>
                 <td>NAMA</td>
                 <td>KEANGGOTAAN</td>
-                <td>WAKTU</td>
+                <td>KELAS</td>
                 <td>KEPERLUAN</td>
+                <td>TANGGAL</td>
+                <td>JAM</td>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1.</td>
-                <td>Zul Hilmi</td>
-                <td>Guru</td>
-                <td>24 Februari 2024, 23.31.00</td>
-                <td>Baca</td>
+              <tr v-for="(visitors,i) in visitors" :key="i" class="text-center">
+                <td>{{ i+1 }}.</td>
+                <td>{{ visitors.nama }}</td>
+                <td>{{ visitors.keanggotaan.nama }}</td>
+                <td>{{ visitors.tingkat}}-{{ visitors.jurusan }}{{ visitors.kelas }}</td>
+                <td>{{ visitors.keperluan.nama }}</td>
+                <td>{{ visitors.tanggal }}</td>
+                <td>{{ visitors.jam.split(".")[0] }} </td>
               </tr>
             </tbody>
           </table>
-          <nuxt-link to="/menu" class="btn btn-back btn-lg rounded-5 px-5">Back to menu</nuxt-link>
+          <nuxt-link to="/pengunjung/menu" class="btn btn-back btn-lg rounded-5 px-5">kembali ke menu</nuxt-link>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+const supabase = useSupabaseClient()
+
+const visitors = ref([])
+
+const getPengunjung = async () =>{
+  const { data,error } = await supabase.from('pengunjung').select(`*, keanggotaan(*), keperluan(*)`)
+  if(data) visitors.value = data
+}
+
+onMounted(() => {
+  getPengunjung()
+})
+</script>
 
 
 <style scoped>
@@ -45,6 +64,6 @@
 
 .content{
   background-color: #97cf5a;
-  height: 100vh;
+  
 }
 </style>
