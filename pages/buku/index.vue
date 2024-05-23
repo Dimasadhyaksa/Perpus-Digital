@@ -7,9 +7,9 @@
           <button type="button" class="btn btn-kembali mt-4 btn-lg">kembali ke menu</button></nuxt-link>
           <h2 class="text-center my-4 text-light">RAK BUKU</h2>
           <form @submit.prevent="getBooks">
-            <input v-model="keyword" type="search" class="form-control form-control-lg rounded-5" placeholder="cari buku.." >
+            <input v-model="keyword" type="search" class="form-control form-control-lg rounded-5" placeholder="cari buku.." aria-label="Search" @input="getbooks" />
           </form>
-        <div class="my-3 text-muted">menampilkan 3 dari 3</div>
+        <div class="my-3 text-muted">menampilkan {{ books.length }} buku dari {{ books.length }}</div>
           <div class="row">
               <div v-for="(book,i) in books" :key="i" class="col-lg-2">
                   <div  class="card mb-3">
@@ -51,7 +51,6 @@ const keyword = ref('')
 }
 .card-body {
   width: 100%;
-  height: 20em;
   padding: 0;
 }
 .cover {

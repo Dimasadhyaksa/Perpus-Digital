@@ -10,19 +10,19 @@
 
           <form @submit.prevent="KirimData">
             <div class="mb-3">
-              <input v-model="form.nama" type="text" class="form-control form-control-lg rounded-5" placeholder="NAMA...">
+              <input v-model="form.nama" type="text" class="form-control form-control-lg rounded-5" placeholder="NAMA..." required>
             </div>
             <div class="mb-3">
-              <select v-model="form.keanggotaan" class="form-control form-control-lg from-select rounded-5">
+              <select v-model="form.keanggotaan" @change="resetkelas" class="form-control form-control-lg from-select rounded-5">
                 <option value="">KEANGGOTAAN</option>
                 <option v-for="(member,i) in members" :key="i" :value="member.id">{{ member.nama }}</option>
               </select>
             </div>
-            <div class="mb-3">
+            <div class="mb-3" v-if="form.keanggotaan == '1'">
               <div class="row">
                 <div class="col-md-4">
                   <select v-model="form.tingkat" class="form-control form-control-lg from-select rounded-5 mb-2">
-                    <option value="">TINGKAT</option>
+                    <option value="" disabled>TINGKAT</option>
                     <option value="X">X</option>
                     <option value="XI">XI</option>
                     <option value="XII">XII</option>
@@ -30,7 +30,7 @@
                 </div>
                 <div class="col-md-4">
                   <select v-model="form.jurusan" class="form-control form-control-lg from-select rounded-5 mb-2">
-                    <option value="">JURUSAN</option>
+                    <option value="" disabled>JURUSAN</option>
                     <option value="PPLG">PPLG</option>
                     <option value="TJKT">TJKT</option>
                     <option value="TSM">TSM</option>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-4">
                   <select v-model="form.kelas" class="form-control form-control-lg from-select rounded-5 mb-2">
-                    <option value="">KELAS</option>
+                    <option value="" disabled>KELAS</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -93,6 +93,14 @@ const getKeanggotaan = async () =>{
 const getKeperluan = async () =>{
   const { data,error } = await supabase.from('keperluan').select('*')
   if(data) objectives.value = data
+}
+
+const resetkelas = e => {
+  if(e.target.value === '2' || '3' || '4'){
+    form.value.tingkat = ''
+    form.value.jurusan = ''
+    form.value.kelas = ''
+  }
 }
 
 onMounted(() =>{

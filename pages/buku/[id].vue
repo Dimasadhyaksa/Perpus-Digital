@@ -2,8 +2,8 @@
   <div class="content">
       <div class="container-fluid">
           <nuxt-link to="/buku">
-              <button type="button" class="btn btn-outline-dark btn-lg mt-4">KEMBALI</button></nuxt-link>
-                  <h2 class="text-center my-4">RINCIAN BUKU</h2>
+              <button type="button" class="btn btn-back btn-lg mt-4">KEMBALI</button></nuxt-link>
+                  <h2 class="text-center my-4 text-light">RINCIAN BUKU</h2>
           <div class="row d-flex justify-content-center flex-md-wrap" style="padding-top: 190px;">
               <div class="col-3 ">
                   <img :src="buku?.cover"  class="cover row img-fluid" alt="cover buku"   style="width: 250px;">
@@ -14,17 +14,13 @@
                   <div class="row">
                       <h1 class="text start text-center my-4">{{ buku?.judul }}</h1>
                   </div>
-                  <div class="row">
-                  <div class="badge bg-primary p-2">{{ buku.kategori?.nama }}</div>
-                      <ul class="list-group list-group-flush">
-                          <li class="list-group-item">PENULIS: {{ buku.penulis }}</li>
-                          <li class="list-group-item">PENERBIT: {{ buku.penerbit }}</li>
-                          <li class="list-group-item">TAHUN TERBIT: {{ buku.tahun_terbit }}</li>
-                          <li class="list-group-item">RAK: {{ buku.rak }}</li>
-                          <li class="list-group-item">DESKRIPSI: {{ buku.deskripsi }}</li>
-                      </ul>                       
-                  </div>
-                  <div class="row">
+                  <div class="row detile">
+                      <h2 class="list-group-item">Penulis: {{ buku.penulis }}</h2>
+                      <h2 class="list-group-item">Penerbit: {{ buku.penerbit }}</h2>        
+                      <h2 class="list-group-item">Tahun Terbit: {{ buku.tahun_terbit }}</h2>
+                      <h2 class="list-group-item">Rak: {{ buku.rak }}</h2>
+                      <h2 class="list-group-item">Kategori: {{ buku.kategori?.nama }}</h2>
+                      <h2 class="list-group-item">Deskripsi: {{ buku.deskripsi }}</h2>
                   </div>
               </div>
           </div>
@@ -47,6 +43,8 @@ const getBookByid = async () => {
     if(data) buku.value = data
 }
 
+
+
 onMounted(() => {
     getBookByid()
 })
@@ -57,8 +55,19 @@ onMounted(() => {
   background:#97cf5a;
   background-size: cover;
   width: 100%;
-  height: 100vh;
   font-family: '';
-  color: black;
+}
+
+.detile{
+    color: black;
+    background: #c6fc8c;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.btn-back{
+    color: white;
+    background: #295000;
+    border: 2px solid white;
 }
 </style>
