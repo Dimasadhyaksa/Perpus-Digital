@@ -1,6 +1,7 @@
 <template>
   <div class="content">
     <div class="container-fluid">
+      <nuxt-link to="/"><button type="button" class="btn btn-dark btn-lg mt-4">KELUAR</button></nuxt-link>
       <div class="row pt-5">
         <div class="col-lg-6">
           <nuxt-link to="/pengunjung/riwayat" class="text-decoration-none">
@@ -53,6 +54,11 @@
 .content{
   background-color: #97cf5a;
   height: 100vh;
+}
+
+.btn-dark{
+  background-color: #295000;
+  border: solid 2px white;
 }
 
 </style>

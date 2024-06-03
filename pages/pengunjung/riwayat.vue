@@ -5,9 +5,11 @@
         <div class="col-lg-12">
           <h2 class="text-center my-4 text-light">RIWAYAT KUNJUNGAN</h2>
           <div class="my-3">
-            <input type="search" class="form-control form-control-lg rounded-5" placeholder="Filter...">
+            <form @submit.prevent="getPengunjung">
+              <input v-model="keyword" type="search" class="form-control form-control-lg rounded-5" placeholder="cari nama..." @input="getPengunjung" />
+            </form>
           </div>
-          <div class="my-3 text-muted">menampilkan 1 dari 1</div>
+          <div class="my-3">menampilkan {{ visitors.length }} dari {{ visitors.length}} riwayat</div>
           <table class="table">
             <thead>
               <tr class="text-center">
@@ -32,7 +34,8 @@
               </tr>
             </tbody>
           </table>
-          <nuxt-link to="/pengunjung/menu" class="btn btn-back btn-lg rounded-5 px-5">kembali ke menu</nuxt-link>
+          <nuxt-link to="/pengunjung/menu">
+          <button type="button" class="btn btn-back mt-4 btn-lg">kembali ke menu</button></nuxt-link>
         </div>
       </div>
     </div>
@@ -40,18 +43,23 @@
 </template>
 
 <script setup>
-const supabase = useSupabaseClient()
+const supabase= useSupabaseClient()
 
+const keyword = ref('')
 const visitors = ref([])
 
-const getPengunjung = async () =>{
-  const { data,error } = await supabase.from('pengunjung').select(`*, keanggotaan(*), keperluan(*)`)
+const getPengunjung =async () => {
+  const { data, error } = await supabase
+  .from('pengunjung')
+  .select(`*, keanggotaan(*), keperluan(*)`)
+  .ilike("nama",`%${keyword.value}%`)
   if(data) visitors.value = data
 }
 
-onMounted(() => {
+onMounted(() =>{
   getPengunjung()
 })
+
 </script>
 
 
