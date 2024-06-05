@@ -54,6 +54,7 @@ onMounted(() => {
     background:#97cf5a;
     background-size: cover;
     width: 100%;
+    height: 100vh;
     font-family: '';
     color: black;
 }
