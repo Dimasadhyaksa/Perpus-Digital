@@ -12,7 +12,7 @@
           <div class="my-3">menampilkan {{ visitors.length }} dari {{ visitors.length}} riwayat</div>
           <table class="table">
             <thead>
-              <tr class="text-center">
+              <tr class="text-center ">
                 <td>ID</td>
                 <td>NAMA</td>
                 <td>KEANGGOTAAN</td>
@@ -35,7 +35,7 @@
             </tbody>
           </table>
           <nuxt-link to="/pengunjung/menu">
-          <button type="button" class="btn btn-back mt-4 btn-lg">kembali ke menu</button></nuxt-link>
+          <button type="button" class="btn btn-back mt-4 btn-lg sticky-bottom">kembali ke menu</button></nuxt-link>
         </div>
       </div>
     </div>
@@ -53,6 +53,7 @@ const getPengunjung =async () => {
   .from('pengunjung')
   .select(`*, keanggotaan(*), keperluan(*)`)
   .ilike("nama",`%${keyword.value}%`)
+  .order("id", {ascending: false} )
   if(data) visitors.value = data
 }
 
@@ -74,4 +75,5 @@ onMounted(() =>{
   background-color: #97cf5a;
   
 }
+
 </style>

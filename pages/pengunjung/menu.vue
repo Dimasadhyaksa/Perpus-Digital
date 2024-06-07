@@ -61,4 +61,14 @@
   border: solid 2px white;
 }
 
+@media (max-width:600) {
+  .content{
+    height: 1000vh;
+  }
+}
+
+@media (max-width:400) {
+  
+}
+
 </style>

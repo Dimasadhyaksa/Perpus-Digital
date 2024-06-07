@@ -1,13 +1,12 @@
 <template>
   <div class="content">
     <div class="container-fluid">
-      <div class="row d-flex justify-content-center align-items-center pt-5">
-        <div class="col-6 text-light text-center">
+      <div class="row pt-5">
+        <div class="col-lg-6 col-md-5 col-sm-4 col-12 text-light text-center judul">
           <h2>ISI DAFTAR</h2>
           <h2>PENGUNJUNG</h2>
         </div>
-        <div class="col-6">
-
+        <div class="col-lg-6 col-md-7 col-sm-8 col-12" style="padding: 0px 80px;">
           <form @submit.prevent="KirimData">
             <div class="mb-3">
               <input v-model="form.nama" type="text" class="form-control form-control-lg rounded-5" placeholder="NAMA..." required>
@@ -30,7 +29,7 @@
                 </div>
                 <div class="col-md-4">
                   <select v-model="form.jurusan" class="form-control form-control-lg from-select rounded-5 mb-2">
-                    <option value="">JURUSAN</option>
+                    <option value="" disabled selected>JURUSAN</option>
                     <option value="PPLG">PPLG</option>
                     <option value="TJKT">TJKT</option>
                     <option value="TSM">TSM</option>
@@ -40,18 +39,18 @@
                 </div>
                 <div class="col-md-4">
                   <select v-model="form.kelas" class="form-control form-control-lg from-select rounded-5 mb-2">
-                    <option value="">KELAS</option>
+                    <option value="" disabled selected>KELAS</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
+                    <option v-if ="!(form.jurusan=='DKV')" value="3">3</option>
+                    <option v-if ="!(form.jurusan=='DKV')" value="4">4</option>
                   </select>
                 </div>
             </div>
           </div>
           <div class="mb-3">
             <select v-model="form.keperluan"class="form-control form-control-lg from-select rounded-5">
-              <option value="">KEPERLUAN</option>
+              <option value="" disabled selected>KEPERLUAN</option>
               <option v-for="(item,i) in objectives" :key="i" :value="item.id">{{ item.nama }}</option>
             </select>
           </div>
@@ -111,7 +110,7 @@ onMounted(() =>{
 
 <style scoped>
 form{
-  width: 400px;
+  /* width: 400px; */
   background-color: #c6fc8c;
   padding: 1rem;
   border-radius: 20px;
@@ -127,6 +126,32 @@ form{
   background-color: #97cf5a;
   height: 100vh;
   /* z-index: ; */
+  width: 100%;
 }
 
+/* @media screen and (max-width: 400px){
+  form{
+  width: 200px;
+  background-color: #c6fc8c;
+  padding: 1rem;
+  border-radius: 20px;
+  }
+
+  .content{
+  height: 100vh;
+  width: 75vh;
+  /* z-index: ; */
+
+
+/* @media (max-width: 600px){
+  form{
+  width: 200px;
+  background-color: #c6fc8c;
+  padding: 1rem;
+  border-radius: 20px;
+  }
+} */
+
 </style>
+
+

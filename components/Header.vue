@@ -25,4 +25,39 @@
 img {
   width: 100px;
 }
+
+/* @media (max-width: 400px){
+  img {
+    width: 100px;
+}
+.judul {
+  font-size: 40px;
+  padding-left: 20px;
+}
+.alamat {
+  padding-left: 20px;
+  }
+
+.bg-header{
+  width: 150vh;
+}
+}
+
+@media (max-width: 600px){
+  img{
+    width: 100px;
+}
+
+.judul {
+  font-size: 30px;
+}
+
+.alamat {
+  padding-left: 20px;
+  }
+
+.bg-header{
+  width: 150vh;
+}
+} */
 </style>
